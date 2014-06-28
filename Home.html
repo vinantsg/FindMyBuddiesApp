@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <script src="js/cordova.js"></script>
+        <script src="js/jquery-1.11.1.js"></script>
+        <script src="js/jsHome.js"></script>
+      
+       
+        <script>
+         //  $(document).ready(function(){
+          //      alert('Home');
+          //  });
+              document.addEventListener("deviceready", onDeviceReady, true);
+            function onDeviceReady() {
+    alert('device ready');
+    $('#btnGetLocation').click(function(){
+        alert('going to call geo location');
+         navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    });
+      
+}
+// onSuccess Geolocation
+    //
+    function onSuccess(position) {
+        alert('success');
+        var element = document.getElementById('geolocation');
+        element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
+                            'Longitude: '          + position.coords.longitude             + '<br />' +
+                            'Altitude: '           + position.coords.altitude              + '<br />' +
+                            'Accuracy: '           + position.coords.accuracy              + '<br />' +
+                            'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
+                            'Heading: '            + position.coords.heading               + '<br />' +
+                            'Speed: '              + position.coords.speed                 + '<br />' +
+                            'Timestamp: '          +           position.timestamp          + '<br />';
+    }
+
+    // onError Callback receives a PositionError object
+    //
+    function onError(error) {
+        alert('code: '    + error.code    + '\n' +
+                'message: ' + error.message + '\n');
+    }
+</script>
+    </head>
+        <body>
+            <h1>My Current Location</h1>
+            <label id="myLattitude"></label>
+            <label id="myLongitude"></label>
+            <button id=btnGetLocation>Get Location</button>
+            <div>
+            <p id="geolocation">Finding geolocation...</p>
+            </div>
+        </body>
+    
+</html>
