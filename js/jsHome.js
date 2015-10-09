@@ -10,7 +10,7 @@ function onDeviceReady() {
     //
     function onSuccess(position) {
         alert('success');
-        var element = document.getElementById('geolocation');
+        var element = document.getElementById('geolocation test');
         element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
                             'Longitude: '          + position.coords.longitude             + '<br />' +
                             'Altitude: '           + position.coords.altitude              + '<br />' +
